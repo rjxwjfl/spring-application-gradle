@@ -14,6 +14,9 @@ spring:
             scope:
               - email
               - profile
+  redis:
+    host: localhost
+    port: 6379
 
 mybatis:
   mapper-locations:

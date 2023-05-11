@@ -15,7 +15,7 @@ public class UserAuthFailureHandler extends SimpleUrlAuthenticationFailureHandle
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
         HttpSession session = request.getSession();
         session.setAttribute("loginErrorMessage", exception.getMessage());
-        setDefaultFailureUrl("//url");
+        setDefaultFailureUrl("/user/signin/form?error=true&t=h");
         super.onAuthenticationFailure(request, response, exception);
     }
 }

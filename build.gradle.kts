@@ -23,14 +23,19 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.1")
-	// <!-- Auth --!>
+	// <! -- Auth -- !>
 	implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
 	implementation("org.springframework.boot:spring-boot-starter-security")
 
-	// <!-- Database --!>
-	implementation("mysql:mysql-connector-java:8.0.30")
-	implementation("org.mybatis:mybatis:3.5.11")
+	// <! -- Database -- !>
+	implementation("mysql:mysql-connector-java:8.0.32")
+	implementation("org.mybatis:mybatis:3.5.13")
 	implementation("org.springframework.boot:spring-boot-starter-data-redis:3.0.5")
+
+	// <! -- JWT -- !>
+	implementation("io.jsonwebtoken:jjwt-api:0.11.5")
+	runtimeOnly("io.jsonwebtoken:jjwt-impl:0.11.5")
+	runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.11.5")
 
 	compileOnly("org.projectlombok:lombok")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")

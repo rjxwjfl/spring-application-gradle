@@ -13,13 +13,12 @@ public class PostCtrl {
 
     private final PostRepo postRepo;
 
-    @GetMapping("/post/{postId}")
+    @GetMapping("/api/post/view/{postId}")
     public ResponseEntity<?> getPostDtl(@PathVariable int postId){
-        System.out.println("Request has detected.");
         return ResponseEntity.ok().body(postRepo.getPostDetail(postId));
     }
 
-    @GetMapping("/posts")
+    @GetMapping("/api/posts")
     public ResponseEntity<?> getPosts(){
         return ResponseEntity.ok().body(postRepo.getPosts());
     }

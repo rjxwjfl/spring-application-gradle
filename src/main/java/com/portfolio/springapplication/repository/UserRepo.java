@@ -13,4 +13,8 @@ public interface UserRepo {
     @Select("CALL get_user_outline(#{userId})")
     @Options(statementType = StatementType.CALLABLE)
     List<UserOutline> getUserOutline(Integer userId);
+
+    @Select("CALL sign_up(#{username}, #{password}, #{name})")
+    @Options(statementType = StatementType.CALLABLE)
+    String signUp(String username, String password, String name);
 }

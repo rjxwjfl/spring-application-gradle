@@ -1,31 +1,39 @@
 package com.portfolio.springapplication.controller;
 
+import com.portfolio.springapplication.dto.RtkReqDto;
 import com.portfolio.springapplication.dto.SignInReqDto;
+import com.portfolio.springapplication.dto.SignOutReqDto;
+import com.portfolio.springapplication.dto.SignUpReqDto;
 import com.portfolio.springapplication.services.AuthService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
-@RequiredArgsConstructor
+@RestController
+@RequestMapping("/api/auth")
 public class AuthCtrl {
-
     @Autowired
     private AuthService authService;
 
-    @PostMapping("/user/signin")
-    public ResponseEntity<?> signIn(@RequestBody SignInReqDto signInReqDto, BindingResult bindingResult){
+    @PostMapping("/signup")
+    public ResponseEntity<?> signUp(@RequestBody SignUpReqDto signUpReqDto){
+        return ResponseEntity.ok(authService.signUp(signUpReqDto));
+    }
+
+    @PostMapping("/signin")
+    public ResponseEntity<?> signIn(@RequestBody SignInReqDto signInReqDto){
         return ResponseEntity.ok(authService.signIn(signInReqDto));
     }
 
-    @GetMapping("/user/signout")
-    public ResponseEntity<?> signOut(){
-        return ResponseEntity.ok(authService.signOut());
+    @PostMapping("/signout")
+    public ResponseEntity<?> signOut(@RequestBody SignOutReqDto signOutReqDto){
+        System.out.println("in signout : " + signOutReqDto);
+        return ResponseEntity.ok(authService.signOut(signOutReqDto));
+    }
+
+    @PostMapping("/refresh")
+    public ResponseEntity<?> refreshToken(@RequestBody RtkReqDto rtkReqDto){
+        return ResponseEntity.ok(authService.refreshToken(rtkReqDto));
     }
 
 }

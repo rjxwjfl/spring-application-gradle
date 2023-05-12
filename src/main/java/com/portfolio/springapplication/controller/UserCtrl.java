@@ -14,9 +14,10 @@ public class UserCtrl {
 
     private final UserRepo userRepo;
 
-    @GetMapping("/user/info/{userId}")
-    @PreAuthorize("isAuthenticated() and #userId == authentication.principal.user.id")
+    @GetMapping("/api/user/info/{userId}")
+//    @PreAuthorize("#userId == authentication.principal.user.id")
     public ResponseEntity<?> getUserOutline(@PathVariable int userId){
+        System.out.println("userId : " + userId);
         return ResponseEntity.ok().body(userRepo.getUserOutline(userId));
     }
 }

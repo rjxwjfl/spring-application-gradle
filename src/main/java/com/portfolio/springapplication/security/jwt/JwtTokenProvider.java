@@ -1,8 +1,8 @@
 package com.portfolio.springapplication.security.jwt;
 
 import com.portfolio.springapplication.config.RedisConfig;
-import com.portfolio.springapplication.dto.RtkRespDto;
-import com.portfolio.springapplication.dto.SignInRespDto;
+import com.portfolio.springapplication.dto.auth.RtkRespDto;
+import com.portfolio.springapplication.dto.auth.SignInRespDto;
 import com.portfolio.springapplication.security.auth.UserPrincipalDetail;
 import com.portfolio.springapplication.security.auth.UserPrincipalDetailService;
 import com.portfolio.springapplication.security.exception.CustomException;

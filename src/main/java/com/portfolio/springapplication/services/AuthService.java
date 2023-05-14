@@ -1,7 +1,7 @@
 package com.portfolio.springapplication.services;
 
 import com.portfolio.springapplication.config.RedisConfig;
-import com.portfolio.springapplication.dto.*;
+import com.portfolio.springapplication.dto.auth.*;
 import com.portfolio.springapplication.repository.UserRepo;
 import com.portfolio.springapplication.security.auth.UserPrincipalDetail;
 import com.portfolio.springapplication.security.auth.UserPrincipalDetailService;

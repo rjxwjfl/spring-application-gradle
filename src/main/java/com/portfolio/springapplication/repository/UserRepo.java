@@ -17,4 +17,8 @@ public interface UserRepo {
     @Select("CALL sign_up(#{username}, #{password}, #{name})")
     @Options(statementType = StatementType.CALLABLE)
     String signUp(String username, String password, String name);
+
+    @Select("CALL user_update(#{userId}, #{name}, #{introduce}, #{imageUrl})")
+    @Options(statementType = StatementType.CALLABLE)
+    String updateUserInfo(int userId, String name, String introduce, String imageUrl);
 }
